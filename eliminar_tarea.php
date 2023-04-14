@@ -6,7 +6,7 @@ if (isset($_GET['id'])) {
     $query = "DELETE FROM tarea WHERE id = $id";
     $resultado = mysqli_query($conn, $query);
     if (!$resultado) {
-        dei("La consulta ha fallado");
+        die("La consulta ha fallado");
     }
 
     $_SESSION['mensaje'] = 'Tarea eliminada de forma satisfactoria';
