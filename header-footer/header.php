@@ -21,7 +21,12 @@
 <nav class="navbar navbar-dark bg-primary">
     <div class="container">
         <div class="row">
-        <h1>Registro y visializacion de tareas</h1>
+            <div class="col-md-8">
+                <h1>BIENVENIDO <?php echo $_SESSION['sesion_usuario']; ?></h1>
+            </div>
+            <div class="col-md-4">
+                <button id="btnCS" class="btn btn-danger">Cerrar sesión</button>
+            </div>
         </div>
     </div>
 </nav>

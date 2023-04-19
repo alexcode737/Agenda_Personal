@@ -9,3 +9,10 @@ if(isset($_POST['username'])){
     $data['mensaje'] = true;
     echo json_encode($data);
 }
+
+if(isset($_POST['sesion'])){
+    session_destroy();
+    $data = array();
+    $data['mensaje'] = true;
+    echo json_encode($data);
+}
