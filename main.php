@@ -2,7 +2,12 @@
 
 <?php include("./header-footer/header.php") ?>
 
+<?php 
 
+    if(!isset($_SESSION['sesion_usuario'])){
+        header('Location: index.html');
+    }
+?>
 
 <div class="container p-4">
 
@@ -14,7 +19,7 @@
                      <?= $_SESSION['mensaje'] ?>
                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-            <?php session_unset(); }  ?>
+            <?php unset($_SESSION['mensaje']); }  ?>
 
             <div class="card card-body">
                 <form action="guardar_tarea.php" method="POST">
@@ -44,8 +49,15 @@
                     </thead>
                     <tbody>
                         <?php
-                            $query = "SELECT * FROM tarea";
+                            $username = $_SESSION['sesion_usuario'];
+                            $queryIdUser = mysqli_query($conn,"SELECT id FROM users WHERE username = '$username'");
+
+                            $result_userId = mysqli_fetch_assoc($queryIdUser)['id'];
+                            $query = "SELECT * FROM tarea WHERE id_user = '$result_userId'";
                             $result_tareas = mysqli_query($conn, $query);
+                            if(!$result_tareas) {
+                                echo "Error al ejecutar la consulta: " . mysqli_error($conn);
+                            }
 
                             while($row = mysqli_fetch_array($result_tareas)) { ?>
                             <tr>

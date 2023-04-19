@@ -18,6 +18,7 @@
                     <h3>Contacto</h3>
                     <p><a href="mailto:alexis15torres16zorrilla@gmail.com" target="_blank" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-light">Correo electrónico</a></p>
                     <p><a href="https://wa.me/573146086720" target="_blank" class="link-underline-opacity-25 link-light">Teléfono</a></p>
+                    <p><a href="https://github.com/alexcode737" target="_blank" class="link-underline-opacity-25 link-light">Github</a></p>
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@ $("#registrarse").on("submit", function(event) {
     const password = document.getElementById("password").value;
     console.log(`${username} ${names} ${password}`)
 
-    if(username == '' || names == '' || password == ''){
+    if(username.length < 5 || names.length < 5 || password.length < 5){
         Swal.fire({
             icon: 'error',
             title: 'Error',

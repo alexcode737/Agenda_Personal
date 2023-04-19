@@ -2,10 +2,9 @@ $("#login").on("submit", function(event) {
     event.preventDefault();
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-    console.log(`${username} ${password}`)
 
     $.ajax({
-        url: "./index.php",
+        url: "./login.php",
         method: "POST",
         data: {
             username: username,
@@ -20,22 +19,18 @@ $("#login").on("submit", function(event) {
                 text: response.message,
             }); 
         } else if(response.success == true){
-            Swal.fire({
-                title: 'Exito',
-                showDenyButton: true,
-                confirmButtonText: 'Ok',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                  $.ajax({
-                    url: "./main.php",
-                    method: "POST",
-                    dataType: "json",
-                    data: {
-                        username: username,
-                    }
-                  })
+            $.ajax({
+                url: "./session_usuario.php",
+                method: "POST",
+                dataType: "json",
+                data: {
+                  username: username,
                 }
-            })
+            }).done(function(res){
+                if(res.mensaje == true){
+                    window.location.href = './main.php';
+                }
+            });
         }
     });
 });

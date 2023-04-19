@@ -24,17 +24,17 @@
 
     $_SESSION['mensaje'] = 'Tarea actualizada correctamente';
     $_SESSION['tipo_de_mensaje'] = 'success';
-    header('Location: index.php');
+    header('Location: main.php');
 
     }
 
 ?>
-<?php include("archivos/header.php") ?>
+<?php include("./header-footer/header.php") ?>
 
 <div class="container p-4">
    <div class="row">
         <div class="col-md-2">
-            <a href="index.php" class="btn btn-outline-danger">Regresar</a>
+            <a href="main.php" class="btn btn-outline-danger">Regresar</a>
         </div>
         <div class="col-md-4 mx-auto">
             <div class="card card-body">
@@ -55,4 +55,4 @@
    </div>
 </div>
 
-<?php include("archivos/footer.php")  ?>
+<?php include("./header-footer/footer.php")  ?>
